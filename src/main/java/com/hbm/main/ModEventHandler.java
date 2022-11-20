@@ -1240,12 +1240,11 @@ public class ModEventHandler {
 			PacketDispatcher.sendTo(new KeybindPacket(EnumKeybind.TOGGLE_JETPACK, props.getEnableBackpack()), playerMP);
 
 			if (GeneralConfig.enableWelcomeMessage) {
-				e.player.sendMessage(new TextComponentTranslation("§3Welcome back§r"));
+				e.player.sendMessage(new TextComponentTranslation("Loaded world with Hbm's Nuclear Tech Mod " + RefStrings.VERSION + " for Minecraft 1.12.2!"));
 			}
 
 			if(HTTPHandler.newVersion) {
-				e.player.sendMessage(new TextComponentString("§ePOG - §aNew§e version §3" + HTTPHandler.versionNumber + "§e is available§r"));
-				e.player.sendMessage(new TextComponentString("§ePlaying on version §7" + RefStrings.VERSION + "§e right now§r"));
+				e.player.sendMessage(new TextComponentString(TextFormatting.YELLOW + "New version " + HTTPHandler.versionNumber + " is available!"));
 			}
 			
 			if(HTTPHandler.optifine){
