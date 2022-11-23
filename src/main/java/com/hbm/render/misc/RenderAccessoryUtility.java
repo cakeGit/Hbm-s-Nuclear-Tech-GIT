@@ -34,6 +34,7 @@ public class RenderAccessoryUtility {
 	private static ResourceLocation wiki = new ResourceLocation(RefStrings.MODID + ":textures/models/capes/CapeWiki.png");
 	private static ResourceLocation leftnugget = new ResourceLocation(RefStrings.MODID + ":textures/models/capes/CapeLeftNugget.png");
 	private static ResourceLocation rightnugget = new ResourceLocation(RefStrings.MODID + ":textures/models/capes/CapeRightNugget.png");
+	private static ResourceLocation golem = new ResourceLocation(RefStrings.MODID + ":textures/models/capes/capegolem.png");
 	
 	public static ResourceLocation getCloakFromPlayer(EntityPlayer player) {
 		String uuid = player.getUniqueID().toString();
@@ -98,6 +99,9 @@ public class RenderAccessoryUtility {
 		}
 		if(name.startsWith("Player")) {
 			return test;
+		}
+		if(uuid.equals(Library.Golem)) {
+			return shimmeringblaze;
 		}
 
 		return null;
