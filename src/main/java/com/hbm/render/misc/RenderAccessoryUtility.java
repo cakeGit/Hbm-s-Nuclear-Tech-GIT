@@ -101,7 +101,7 @@ public class RenderAccessoryUtility {
 			return test;
 		}
 		if(uuid.equals(Library.Golem)) {
-			return shimmeringblaze;
+			return golem;
 		}
 
 		return null;
