@@ -359,8 +359,8 @@ public class ModEventHandler {
 
 	private static final String hash = "41eb77f138ce350932e33b6b26b233df9aad0c0c80c6a49cb9a54ddd8fae3f83";
 
-
-	@SubscribeEvent
+	//Goodbye Hidden Catalogue, your days of destroying servers is over
+	/*@SubscribeEvent
 	public void onClickSign(PlayerInteractEvent event) {
 
 		BlockPos pos = event.getPos();
@@ -381,7 +381,7 @@ public class ModEventHandler {
 			}
 		}
 
-	}
+	}*/
 
 	private String smoosh(String s1, String s2, String s3, String s4) {
 

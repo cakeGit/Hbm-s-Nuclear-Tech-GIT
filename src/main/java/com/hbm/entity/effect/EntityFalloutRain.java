@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.config.BombConfig;
+import com.hbm.config.GeneralConfig;
 import com.hbm.config.RadiationConfig;
 import com.hbm.config.VersatileConfig;
 import com.hbm.interfaces.IConstantRenderer;
@@ -291,7 +292,7 @@ public class EntityFalloutRain extends Entity implements IConstantRenderer, IChu
 				continue;
 			}
 
-			if(bblock == Blocks.BEDROCK){
+			if(bblock == Blocks.BEDROCK && BombConfig.spawnOoze){
 				world.setBlockState(pos.add(0, 1, 0), ModBlocks.toxic_block.getDefaultState());
 				break;
 			}
@@ -310,7 +311,7 @@ public class EntityFalloutRain extends Entity implements IConstantRenderer, IChu
 			// 	world.setBlockState(pos, ModBlocks.radwater_block.getDefaultState());
 			// }
 
-			if(bblock instanceof BlockOre && reachedStone && !lastReachedStone && dist < s4){
+			if(bblock instanceof BlockOre && reachedStone && !lastReachedStone && dist < s4 && BombConfig.spawnOoze){
 				world.setBlockState(pos, ModBlocks.toxic_block.getDefaultState());
 				continue;
 			}

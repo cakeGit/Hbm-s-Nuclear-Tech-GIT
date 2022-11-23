@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.hbm.config.BombConfig;
 import org.apache.logging.log4j.Level;
 
 import com.hbm.blocks.ModBlocks;
@@ -499,7 +500,7 @@ public class ExplosionNukeGeneric {
 				world.setBlockState(pos, ModBlocks.sellafield_slaked.getDefaultState());
 			}
 
-			else if(b == Blocks.BEDROCK){
+			else if(b == Blocks.BEDROCK && BombConfig.spawnOoze){
 				world.setBlockState(pos.add(0, 1, 0), ModBlocks.toxic_block.getDefaultState());
 			}
 
@@ -628,7 +629,7 @@ public class ExplosionNukeGeneric {
 				world.setBlockState(pos, ModBlocks.sellafield_slaked.getDefaultState());
 			}
 
-			else if(b == Blocks.BEDROCK){
+			else if(b == Blocks.BEDROCK && BombConfig.spawnOoze){
 				world.setBlockState(pos.add(0, 1, 0), ModBlocks.toxic_block.getDefaultState());
 			}
 
