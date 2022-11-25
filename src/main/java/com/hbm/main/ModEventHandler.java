@@ -359,8 +359,8 @@ public class ModEventHandler {
 
 	private static final String hash = "41eb77f138ce350932e33b6b26b233df9aad0c0c80c6a49cb9a54ddd8fae3f83";
 
-
-	@SubscribeEvent
+	//Goodbye Hidden Catalogue, your days of destroying servers is over
+	/*@SubscribeEvent
 	public void onClickSign(PlayerInteractEvent event) {
 
 		BlockPos pos = event.getPos();
@@ -381,7 +381,7 @@ public class ModEventHandler {
 			}
 		}
 
-	}
+	}*/
 
 	private String smoosh(String s1, String s2, String s3, String s4) {
 
@@ -1240,12 +1240,11 @@ public class ModEventHandler {
 			PacketDispatcher.sendTo(new KeybindPacket(EnumKeybind.TOGGLE_JETPACK, props.getEnableBackpack()), playerMP);
 
 			if (GeneralConfig.enableWelcomeMessage) {
-				e.player.sendMessage(new TextComponentTranslation("§3Welcome back§r"));
+				e.player.sendMessage(new TextComponentTranslation("Loaded world with Hbm's Nuclear Tech Mod " + RefStrings.VERSION + " for Minecraft 1.12.2!"));
 			}
 
 			if(HTTPHandler.newVersion) {
-				e.player.sendMessage(new TextComponentString("§ePOG - §aNew§e version §3" + HTTPHandler.versionNumber + "§e is available§r"));
-				e.player.sendMessage(new TextComponentString("§ePlaying on version §7" + RefStrings.VERSION + "§e right now§r"));
+				e.player.sendMessage(new TextComponentString(TextFormatting.YELLOW + "New version " + HTTPHandler.versionNumber + " is available!"));
 			}
 			
 			if(HTTPHandler.optifine){

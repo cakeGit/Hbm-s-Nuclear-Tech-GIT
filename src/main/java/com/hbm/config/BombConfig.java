@@ -26,6 +26,7 @@ public class BombConfig {
 	public static int fSpeed = 256;
 	public static int limitExplosionLifespan = 0;
 	public static boolean disableNuclear;
+	public static boolean spawnOoze = false;
 	
 	public static void loadFromConfig(Configuration config) {
 		final String CATEGORY_NUKES = "03_nukes";
@@ -96,6 +97,10 @@ public class BombConfig {
 		Property disableNuclearP = config.get(CATEGORY_NUKE, "6.05_disableNuclear", false);
 		disableNuclearP.setComment("Disable the nuclear part of nukes");
 		disableNuclear = disableNuclearP.getBoolean();
+		//Whether to spawn ooze during a nuclear explosion
+		Property spawnOozeP = config.get(CATEGORY_NUKE, "6.06_spawnOoze", false);
+		spawnOozeP.setComment("Spawn Ooze during a nuclear explosion");
+		spawnOoze = spawnOozeP.getBoolean();
 	}
 
 }

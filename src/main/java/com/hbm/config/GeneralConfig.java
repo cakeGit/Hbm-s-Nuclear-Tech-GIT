@@ -19,6 +19,7 @@ public class GeneralConfig {
 	public static boolean enableDebugMode = true;
 	public static boolean enableWelcomeMessage = true;
 	public static int rfConversionRate = 4;
+	public static boolean useAlternateTextures = false;
 	public static boolean enableMycelium = false;
 	public static boolean enablePlutoniumOre = false;
 	public static boolean enableDungeons = true;
@@ -46,7 +47,7 @@ public class GeneralConfig {
 	public static boolean instancedParticles = true;
 	public static boolean callListModels = true;
 	public static boolean useShaders = false;
-	public static boolean useShaders2 = false;
+	public static boolean useShaders2 = true;
 	public static boolean bloom = true;
 	public static boolean heatDistortion = true;
 	public static boolean enableBabyMode = false;
@@ -132,7 +133,7 @@ public class GeneralConfig {
 		nonoredict = config.get(CATEGORY_GENERAL, "1.28_enableNonOreDict", true).getBoolean(true);
 		
 		jei = config.get(CATEGORY_GENERAL, "1.28_enableJei", true).getBoolean(true);
-		useShaders2 = config.get(CATEGORY_GENERAL, "1.29_enableShaders2", false).getBoolean(false);
+		useShaders2 = config.get(CATEGORY_GENERAL, "1.29_enableShaders2", true).getBoolean(true);
 		bloom = config.get(CATEGORY_GENERAL, "1.30_enableBloom", true).getBoolean(true);
 		heatDistortion = config.get(CATEGORY_GENERAL, "1.30_enableHeatDistortion", true).getBoolean(true);
 		
@@ -172,6 +173,8 @@ public class GeneralConfig {
 		enableWelcomeMessage = CommonConfig.createConfigBool(config, CATEGORY_GENERAL, "1.34_enableWelcomeMessage", "Enables the welcome message which appears in the chat when you load into the game", true);
 
 		rfConversionRate = CommonConfig.createConfigInt(config, CATEGORY_GENERAL, "1.35_rfConversionRate", "Controls how much RF you get per HE and vice versa", 4);
+
+		useAlternateTextures = CommonConfig.createConfigBool(config, CATEGORY_GENERAL, "1.36_useAlternateTextures", "Use alternative textures (Coming Soon)", false);
 
 		final String CATEGORY_528 = "528";
 
