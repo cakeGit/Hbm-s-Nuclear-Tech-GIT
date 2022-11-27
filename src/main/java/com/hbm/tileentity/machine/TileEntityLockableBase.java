@@ -76,12 +76,12 @@ public class TileEntityLockableBase extends TileEntity {
 	}
 	
 	public boolean canAccess(EntityPlayer player) {
-		
-		if(player == null) { //!isLocked || 
-			return false;
+
+		if(!isLocked || player == null) {
+			return true;
 		} else {
 			ItemStack stack = player.getHeldItemMainhand();
-			
+//
 			if(stack.getItem() instanceof ItemKeyPin && ItemKeyPin.getPins(stack) == this.lock) {
 	        	world.playSound(null, player.posX, player.posY, player.posZ, HBMSoundHandler.lockOpen, SoundCategory.BLOCKS, 1.0F, 1.0F);
 				return true;
