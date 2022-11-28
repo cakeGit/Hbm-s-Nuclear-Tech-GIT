@@ -70,6 +70,8 @@ public class WorldConfig {
 	public static int meteorStrikeChance = 20 * 60 * 180;
 	public static int meteorShowerChance = 20 * 60 * 5;
 	public static int meteorShowerDuration = 6000;
+
+	public static boolean radHotspotSmall = false;
 	
 	public static void loadFromConfig(Configuration config) {
 		final String CATEGORY_OREGEN = "02_ores";
@@ -170,11 +172,12 @@ public class WorldConfig {
 		Property pGV = config.get(CATEGORY_DUNGEON, "4.19_geyserVaporSpawn", 500);
 		pGV.setComment("Spawn vapor geyser on every nTH chunk");
 		geyserVapor = pGV.getInt();
-		meteorStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "meteorStructure", "Spawn meteor dungeon on every nTH chunk", 15000);
-		capsuleStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.21_capsuleSpawn", "Spawn landing capsule on every nTH chunk", 100);
-		arcticStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.22_arcticVaultSpawn", "Spawn artic code vault on every nTH chunk", 500);
-		jungleStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.23_jungleDungeonSpawn", "Spawn jungle dungeon on every nTH chunk", 2000);
-		pyramidStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.24_pyramidSpawn", "Spawn pyramid on every nTH chunk", 4000);
+		radHotspotSmall = CommonConfig.createConfigBool(config, CATEGORY_DUNGEON, "4.20_radHotspotSmall", "Enable spawn random sellafield (Not Recommended)", false);
+		meteorStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.21_meteorStructure", "Spawn meteor dungeon on every nTH chunk", 15000);
+		capsuleStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.22_capsuleSpawn", "Spawn landing capsule on every nTH chunk", 100);
+		arcticStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.23_arcticVaultSpawn", "Spawn artic code vault on every nTH chunk", 500);
+		jungleStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.24_jungleDungeonSpawn", "Spawn jungle dungeon on every nTH chunk", 2000);
+		pyramidStructure = CommonConfig.createConfigInt(config, CATEGORY_DUNGEON, "4.25_pyramidSpawn", "Spawn pyramid on every nTH chunk", 4000);
 		
 		final String CATEGORY_METEOR = "05_meteors";
 		Property propMeteorStrikeChance = config.get(CATEGORY_METEOR, "5.00_meteorStrikeChance", 20 * 60 * 60 * 5);

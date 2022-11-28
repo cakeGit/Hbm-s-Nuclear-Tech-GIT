@@ -340,7 +340,8 @@ public class HbmWorldGen implements IWorldGenerator {
 						MainRegistry.logger.info("[Debug] Successfully spawned raditation hotspot at " + x + " " + z);
 				}
 			}
-			if (WorldConfig.radfreq > 0 && GeneralConfig.enableRad && rand.nextInt((int)(WorldConfig.minefreq/2F)) == 0) {
+
+			if (WorldConfig.radHotspotSmall == true && GeneralConfig.enableRad && rand.nextInt((int)(WorldConfig.minefreq/2F)) == 0) {
 
 				int x = i + rand.nextInt(16);
 				int z = j + rand.nextInt(16);
