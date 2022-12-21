@@ -63,12 +63,11 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 			
 			this.wasOn = false;
 			
-			int burn = (heat - TileEntityFurnaceSteel.maxHeat / 3) / 10;
+			int burn = (heat - this.maxHeat / 3) / 10;
 			
 			for(int i = 0; i < 3; i++) {
-				ItemStack input = inventory.getStackInSlot(i);
 				
-				if(input == ItemStack.EMPTY || lastItems[i] == ItemStack.EMPTY || !input.isItemEqual(lastItems[i])) {
+				if(inventory.getStackInSlot(i) == null || lastItems[i] == null || !inventory.getStackInSlot(i).isItemEqual(lastItems[i])) {
 					progress[i] = 0;
 					bonus[i] = 0;
 				}
@@ -79,30 +78,26 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 					this.wasOn = true;
 				}
 				
-				lastItems[i] = input;
+				lastItems[i] = inventory.getStackInSlot(i);
 				
 				if(progress[i] >= processTime) {
-					ItemStack outputs = inventory.getStackInSlot(i + 3);
 					ItemStack result = FurnaceRecipes.instance().getSmeltingResult(inventory.getStackInSlot(i));
-					ItemStack copy = outputs;
-		
-					if(outputs == ItemStack.EMPTY) {
+					ItemStack copy = inventory.getStackInSlot(i + 3);
+					if(inventory.getStackInSlot(i + 3) == null) {
 						 copy  = result.copy();
-						 inventory.setStackInSlot(i + 3, copy);
 					} else {
-						outputs.setCount(copy.getCount() + result.getCount());
+						 copy.setCount(copy.getCount() + result.getCount());
 					}
 					
 					this.addBonus(inventory.getStackInSlot(i), i);
 					
 					while(bonus[i] >= 100) {
-						
-						copy = outputs ;
-						outputs.setCount( Math.min(outputs.getMaxStackSize(), outputs.getCount() + result.getCount()));  
+						copy = inventory.getStackInSlot(i + 3);
+						copy.setCount( Math.min(inventory.getStackInSlot(i + 3).getMaxStackSize(), inventory.getStackInSlot(i + 3).getCount() + result.getCount()));  
 						bonus[i] -= 100;
 					}
 					
-					input.shrink(1);
+					inventory.getStackInSlot(i).shrink(1);
 					
 					progress[i] = 0;
 					
@@ -194,7 +189,7 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 	
 	protected void tryPullHeat() {
 		
-		if(this.heat >= TileEntityFurnaceSteel.maxHeat) return;
+		if(this.heat >= this.maxHeat) return;
 		BlockPos blockBelow = pos.down();
 		TileEntity con = world.getTileEntity(blockBelow);
 		
@@ -210,8 +205,8 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 				diff = (int) Math.ceil(diff * diffusion);
 				source.useUpHeat(diff);
 				this.heat += diff;
-				if(this.heat > TileEntityFurnaceSteel.maxHeat)
-					this.heat = TileEntityFurnaceSteel.maxHeat;
+				if(this.heat > this.maxHeat)
+					this.heat = this.maxHeat;
 				return;
 			}
 		}
@@ -221,32 +216,18 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 	
 	public boolean canSmelt(int index) {
 		
-		if(this.heat < TileEntityFurnaceSteel.maxHeat / 3) return false;
-		if(inventory.getStackInSlot(index).isEmpty())
-		{
-			return false;
-		}
-        ItemStack itemStack = FurnaceRecipes.instance().getSmeltingResult(inventory.getStackInSlot(index));
-        
-		if(itemStack == null || itemStack.isEmpty())
-		{
-			return false;
-		}
+		if(this.heat < this.maxHeat / 3) return false;
+		if(inventory.getStackInSlot(index) == null) return false;
 		
-		if(inventory.getStackInSlot(index + 3).isEmpty())
-		{
-			return true;
-		}
+		ItemStack result = FurnaceRecipes.instance().getSmeltingResult(inventory.getStackInSlot(index));;
 		
-		if(!inventory.getStackInSlot(index + 3).isItemEqual(itemStack)) {
-			return false;
-		}
+		if(result == null) return false;
+		if(inventory.getStackInSlot(index + 3) == null) return true;
 		
-		if(inventory.getStackInSlot(index + 3).getCount() < inventory.getSlotLimit(index + 3) && inventory.getStackInSlot(index + 3).getCount() < inventory.getStackInSlot(index + 3).getMaxStackSize()) {
-			return true;
-		}else{
-			return inventory.getStackInSlot(index + 3).getCount() < itemStack.getMaxStackSize();
-		}
+		if(!result.isItemEqual(inventory.getStackInSlot(index + 3))) return false;
+		if(result.getCount() + inventory.getStackInSlot(index + 3).getCount() > inventory.getStackInSlot(index + 3).getMaxStackSize()) return false;
+		
+		return true;
 	}
 	
 	@Override
@@ -281,11 +262,23 @@ public class TileEntityFurnaceSteel extends TileEntityMachineBase implements IGU
 		return new GUIFurnaceSteel(player.inventory, this);
 	}
 	
-
+	AxisAlignedBB bb = null;
+	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-	
-		return INFINITE_EXTENT_AABB;
+		
+		if(bb == null) {
+			bb = new AxisAlignedBB(
+					xCoord - 1,
+					yCoord,
+					zCoord - 1,
+					xCoord + 2,
+					yCoord + 3,
+					zCoord + 2
+					);
+		}
+		
+		return bb;
 	}
 	
 	@Override

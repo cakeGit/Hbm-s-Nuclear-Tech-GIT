@@ -42,17 +42,17 @@ public class ContainerFirebox extends Container {
 
 			if(index <= 1) {
 				if(!this.mergeItemStack(originalStack, 2, this.inventorySlots.size(), true)) {
-					return ItemStack.EMPTY;
+					return null;
 				}
 				
 				slot.onSlotChange(originalStack, stack);
 				
 			} else if(!this.mergeItemStack(originalStack, 0, 2, false)) {
-				return ItemStack.EMPTY;
+				return null;
 			}
 
 			if(originalStack.getCount() == 0) {
-				slot.putStack(ItemStack.EMPTY);
+				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
 			}
