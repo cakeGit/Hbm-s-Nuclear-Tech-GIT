@@ -122,6 +122,8 @@ public class JetpackHandler {
 			return 0.5F;
 		} else if(f == ModForgeFluids.balefire){
 			return 1.5F;
+		} else if(f == ModForgeFluids.abyssal_fuel){
+			return 5.0F;
 		}
 		return 0;
 	}
@@ -143,6 +145,7 @@ public class JetpackHandler {
 	private static float[] keroseneColor = new float[]{1, 0.6F, 0.5F};
 	private static float[] nitanColor = new float[]{1F, 0.5F, 1F};
 	private static float[] bfColor = new float[]{0.4F, 1, 0.7F};
+	private static float[] abyssColor = new float[]{1F, 1, 0.7F};
 	private static ColorGradient keroseneGradient = new ColorGradient(
 			new float[]{1, 0.918F, 0.882F, 1, 0},
 			new float[]{0.887F, 1, 0, 1, 0.177F},
@@ -161,12 +164,21 @@ public class JetpackHandler {
 			new float[]{0.013F, 1F, 0.068F, 1, 0.389F},
 			new float[]{0.2F, 1F, 0.3F, 1, 0.891F},
 			new float[]{0, 1F, 0.4F, 0, 1});
+
+	private static ColorGradient abyssGradient = new ColorGradient(
+			new float[]{1F, 0.2F, 0.2F, 1, 0},
+			new float[]{1F, 0.2F, 0.1F, 1, 0.122F},
+			new float[]{1F, 0.2F, 0.07F, 1, 0.389F},
+			new float[]{1F, 0.2F, 0.2F, 1, 0.891F},
+			new float[]{1F, 0.2F, 0.2F, 0, 1});
 	
 	public static ColorGradient getGradientFromFuel(Fluid fuel){
 		if(fuel == ModForgeFluids.balefire){
 			return bfGradient;
 		} else if(fuel == ModForgeFluids.nitan){
 			return nitanGradient;
+		} else if(fuel == ModForgeFluids.abyssal_fuel){
+			return abyssGradient;
 		}
 		return keroseneGradient;
 	}
@@ -176,6 +188,8 @@ public class JetpackHandler {
 			return bfColor;
 		} else if(fuel == ModForgeFluids.nitan){
 			return nitanColor;
+		} else if(fuel == ModForgeFluids.abyssal_fuel){
+			return abyssColor;
 		}
 		return keroseneColor;
 	}
