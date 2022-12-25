@@ -131,7 +131,7 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 		if(inventory.getStackInSlot(2).isEmpty())
 			inventory.setStackInSlot(2, result);
 		else if(inventory.getStackInSlot(2).getCount() < inventory.getStackInSlot(2).getMaxStackSize())
-			inventory.getStackInSlot(2).grow(1);
+			inventory.getStackInSlot(2).setCount(inventory.getStackInSlot(2).getCount()+result.getCount());
 
 		//Drillgon200: I think this does the same thing as decrStackSize?
 		float freeChance = this.getFreeChance();

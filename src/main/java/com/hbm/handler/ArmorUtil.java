@@ -335,8 +335,8 @@ public class ArmorUtil {
 	
 	public static boolean checkForDigamma(EntityPlayer player) {
 		
-		//if(checkArmor(player, ModItems.fau_helmet, ModItems.fau_plate, ModItems.fau_legs, ModItems.fau_boots))
-		//	return true;
+		if(checkArmor(player, ModItems.fau_helmet, ModItems.fau_plate, ModItems.fau_legs, ModItems.fau_boots))
+			return true;
 		
 		if(player.isPotionActive(HbmPotion.stability))
 			return true; 

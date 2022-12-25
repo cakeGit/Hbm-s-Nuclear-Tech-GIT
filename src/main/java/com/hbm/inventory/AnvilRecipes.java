@@ -1,9 +1,7 @@
 package com.hbm.inventory;
 
-import static com.hbm.inventory.OreDictManager.CU;
-import static com.hbm.inventory.OreDictManager.IRON;
-import static com.hbm.inventory.OreDictManager.STEEL;
 
+import static com.hbm.inventory.OreDictManager.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,7 +139,7 @@ public class AnvilRecipes {
 				new AStack[] {new OreDictStack("plateIron", 2), new ComparableStack(ModItems.coil_copper), new ComparableStack(ModItems.coil_copper_torus)},
 				new AnvilOutput(new ItemStack(ModItems.motor, 2))).setTier(1));
 		constructionRecipes.add(new AnvilConstructionRecipe(
-				new AStack[] {new ComparableStack(ModItems.motor), new OreDictStack("ingotPolymer", 2), new OreDictStack("ingotDesh", 2), new ComparableStack(ModItems.coil_gold_torus)},
+				new AStack[] {new ComparableStack(ModItems.motor), new OreDictStack("ingotPolymer", 2), new OreDictStack(DESH.ingot(), 2), new ComparableStack(ModItems.coil_gold_torus)},
 				new AnvilOutput(new ItemStack(ModItems.motor_desh, 1))).setTier(3));
 		
 		constructionRecipes.add(new AnvilConstructionRecipe(
@@ -203,13 +201,13 @@ public class AnvilRecipes {
 				new AnvilOutput(new ItemStack(ModItems.wings_limp))).setTier(2));
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
-				new AStack[] {new OreDictStack("ingotDesh", 4), new OreDictStack("dustPolymer", 2), new ComparableStack(ModItems.ingot_dura_steel, 1)},
+				new AStack[] {new OreDictStack(DESH.ingot(), 4), new OreDictStack("dustPolymer", 2), new ComparableStack(ModItems.ingot_dura_steel, 1)},
 				new AnvilOutput(new ItemStack(ModItems.plate_desh, 4))).setTier(3));
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {new OreDictStack("ingotEuphemium", 4), new ComparableStack(ModItems.powder_astatine, 2), new ComparableStack(ModItems.gem_volcanic, 1)},
 				new AnvilOutput(new ItemStack(ModItems.plate_euphemium, 4))).setTier(6));
 		constructionRecipes.add(new AnvilConstructionRecipe(
-				new AStack[] {new OreDictStack("ingotDineutronium", 4), new ComparableStack(ModItems.powder_spark_mix, 2), new OreDictStack("ingotDesh", 1)},
+				new AStack[] {new OreDictStack("ingotDineutronium", 4), new ComparableStack(ModItems.powder_spark_mix, 2), new OreDictStack(DESH.ingot(), 1)},
 				new AnvilOutput(new ItemStack(ModItems.plate_dineutronium, 4))).setTier(7));
 
 		constructionRecipes.add(new AnvilConstructionRecipe(
@@ -225,7 +223,7 @@ public class AnvilRecipes {
 				new AStack[] {new OreDictStack(OreDictManager.getReflector(), 4), new ComparableStack(ModItems.ingot_starmetal, 1), new ComparableStack(ModItems.wire_magnetized_tungsten, 6)},
 				new AnvilOutput(new ItemStack(ModItems.plate_armor_lunar))).setTier(4));
 		constructionRecipes.add(new AnvilConstructionRecipe(
-				new AStack[] {new ComparableStack(ModItems.ingot_meteorite_forged, 4), new OreDictStack("ingotDesh", 1), new ComparableStack(ModItems.billet_yharonite, 1)},
+				new AStack[] {new ComparableStack(ModItems.ingot_meteorite_forged, 4), new OreDictStack(DESH.ingot(), 1), new ComparableStack(ModItems.billet_yharonite, 1)},
 				new AnvilOutput(new ItemStack(ModItems.plate_armor_fau))).setTier(6));
 		constructionRecipes.add(new AnvilConstructionRecipe(
 				new AStack[] {new ComparableStack(ModItems.plate_dineutronium, 4), new ComparableStack(ModItems.particle_sparkticle, 1), new ComparableStack(ModItems.plate_armor_fau, 6)},
