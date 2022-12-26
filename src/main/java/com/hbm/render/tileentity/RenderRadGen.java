@@ -23,6 +23,7 @@ public class RenderRadGen extends TileEntitySpecialRenderer<TileEntityMachineRad
         GL11.glEnable(GL11.GL_LIGHTING);
         GlStateManager.enableLighting();
         GL11.glDisable(GL11.GL_CULL_FACE);
+        GlStateManager.shadeModel(GL11.GL_SMOOTH);
 		switch(te.getBlockMetadata()){
 		case 2:
 			GL11.glTranslated(x + 1.5D, y, z + 0.5D);
@@ -56,7 +57,7 @@ public class RenderRadGen extends TileEntitySpecialRenderer<TileEntityMachineRad
 	        ResourceManager.radgen_body.renderPart("Rotor");
         GL11.glPopMatrix();
 
-        GL11.glPushMatrix();
+     
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glAlphaFunc(GL11.GL_GREATER, 0);
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
@@ -70,9 +71,10 @@ public class RenderRadGen extends TileEntitySpecialRenderer<TileEntityMachineRad
 			GL11.glDepthMask(true);
 			GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
 			GL11.glDisable(GL11.GL_BLEND);
-		GL11.glPopMatrix();
-
+	
+         
         GL11.glEnable(GL11.GL_CULL_FACE);
+        GlStateManager.shadeModel(GL11.GL_FLAT);
         GL11.glPopMatrix();
 	}
 }
