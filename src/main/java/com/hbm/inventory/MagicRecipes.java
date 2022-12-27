@@ -9,6 +9,7 @@ import com.hbm.inventory.RecipesCommon.AStack;
 import com.hbm.inventory.RecipesCommon.ComparableStack;
 import com.hbm.inventory.RecipesCommon.OreDictStack;
 import com.hbm.items.ModItems;
+import static com.hbm.inventory.OreDictManager.*;
 
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
@@ -45,7 +46,7 @@ public class MagicRecipes {
 		recipes.add(new MagicRecipe(new ItemStack(ModItems.rod_of_discord), new ComparableStack(Items.ENDER_PEARL), new ComparableStack(Items.BLAZE_ROD), new ComparableStack(ModItems.nugget_euphemium)));
 		recipes.add(new MagicRecipe(new ItemStack(ModItems.balefire_and_steel), new OreDictStack("ingotSteel"), new ComparableStack(ModItems.egg_balefire_shard)));
 		recipes.add(new MagicRecipe(new ItemStack(ModItems.mysteryshovel), new ComparableStack(Items.IRON_SHOVEL), new ComparableStack(Items.BONE), new ComparableStack(ModItems.ingot_starmetal), new ComparableStack(ModItems.ducttape)));
-		recipes.add(new MagicRecipe(new ItemStack(ModItems.ingot_electronium), new ComparableStack(ModItems.dynosphere_dineutronium_charged), new ComparableStack(ModItems.dynosphere_dineutronium_charged), new ComparableStack(ModItems.dynosphere_dineutronium_charged), new ComparableStack(ModItems.dynosphere_dineutronium_charged)));
+		recipes.add(new MagicRecipe(new ItemStack(ModItems.ingot_electronium), new OreDictStack(DNT.ingot()),  new OreDictStack(DNT.ingot()), new ComparableStack(ModItems.pellet_charged), new ComparableStack(ModItems.pellet_charged)));
 
 		recipes.add(new MagicRecipe(new ItemStack(ModItems.ammo_44_pip),
 				new ComparableStack(ModItems.ammo_44),

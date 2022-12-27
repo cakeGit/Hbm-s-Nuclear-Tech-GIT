@@ -1874,15 +1874,15 @@ item.fusion_shield_desh.name=Деш-Защитный слой термоядер
 item.fusion_shield_tungsten.name=Вольфрамовый защитный слой термоядерного реактора
 item.fusion_shield_vaporwave.name=Вапорвейвный защитный слой термоядерного реактора
 
-item.dynosphere_base.name=Шаблон Диносферы
-item.dynosphere_desh.name=Диносфера из деш
-item.dynosphere_desh_charged.name=Диносфера из деш (Заряженная)
-item.dynosphere_schrabidium.name=Шрабидиевая диносфера
-item.dynosphere_schrabidium_charged.name=Шрабидиевая диносфера (Заряженная)
-item.dynosphere_euphemium.name=Эвфемиевая диносфера
-item.dynosphere_euphemium_charged.name=Эвфемиевая диносфера (Заряженная)
-item.dynosphere_dineutronium.name=Динейтрониевая диносфера
-item.dynosphere_dineutronium_charged.name=Динейтрониевая диносфера (Заряженная)
+item.dynosphere_base.name=Шаблон Диносферы(БУДУТ УДАЛЕНЫ СКОРО) 
+item.dynosphere_desh.name=Диносфера из деш(БУДУТ УДАЛЕНЫ СКОРО)
+item.dynosphere_desh_charged.name=Диносфера из деш (Заряженная)(БУДУТ УДАЛЕНЫ СКОРО)
+item.dynosphere_schrabidium.name=Шрабидиевая диносфера(БУДУТ УДАЛЕНЫ СКОРО)
+item.dynosphere_schrabidium_charged.name=Шрабидиевая диносфера (Заряженная)(БУДУТ УДАЛЕНЫ СКОРО)
+item.dynosphere_euphemium.name=Эвфемиевая диносфера(БУДУТ УДАЛЕНЫ СКОРО)
+item.dynosphere_euphemium_charged.name=Эвфемиевая диносфера (Заряженная)(БУДУТ УДАЛЕНЫ СКОРО)
+item.dynosphere_dineutronium.name=Динейтрониевая диносфера(БУДУТ УДАЛЕНЫ СКОРО)
+item.dynosphere_dineutronium_charged.name=Динейтрониевая диносфера (Заряженная)(БУДУТ УДАЛЕНЫ СКОРО)
 
 item.plate_iron.name=Железная пластина
 item.plate_lead.name=Свинцовая пластина

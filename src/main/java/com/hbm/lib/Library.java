@@ -181,10 +181,6 @@ public class Library {
 			return maxPower;
 		}
 		
-		if(inventory.getStackInSlot(index).getItem() == ModItems.fusion_core_infinite)
-		{
-			return maxPower;
-		}
 		
 		if(inventory.getStackInSlot(index).getItem() instanceof IBatteryItem) {
 			

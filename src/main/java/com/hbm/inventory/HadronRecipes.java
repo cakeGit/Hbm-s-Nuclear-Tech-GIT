@@ -3,11 +3,13 @@ package com.hbm.inventory;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hbm.blocks.ModBlocks;
 import com.hbm.inventory.RecipesCommon.ComparableStack;
 import com.hbm.items.ModItems;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import static com.hbm.inventory.OreDictManager.*;
 
 public class HadronRecipes {
 
@@ -107,6 +109,30 @@ public class HadronRecipes {
 				100,
 				new ItemStack(ModItems.nugget),
 				new ItemStack(ModItems.nugget),
+				false
+				));
+		recipes.add(new HadronRecipe(
+				new ItemStack(ModItems.particle_higgs),
+				new ItemStack(ModBlocks.block_uranium),
+				100,
+				new ItemStack(ModBlocks.block_schrabidium),
+				new ItemStack(ModItems.particle_empty),
+				false
+				));
+		recipes.add(new HadronRecipe(
+				new ItemStack(ModItems.particle_dark),
+				new ItemStack(ModBlocks.block_schrabidium),
+				100,
+				new ItemStack(ModBlocks.block_euphemium),
+				new ItemStack(ModItems.particle_empty),
+				false
+				));
+		recipes.add(new HadronRecipe(
+				new ItemStack(ModItems.particle_sparkticle),
+				new ItemStack(ModBlocks.block_schrabidate),
+				100,
+				new ItemStack(ModBlocks.block_dineutronium),
+				new ItemStack(ModItems.particle_empty),
 				false
 				));
 	}
