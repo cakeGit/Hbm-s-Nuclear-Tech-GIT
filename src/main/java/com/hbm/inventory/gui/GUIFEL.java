@@ -3,6 +3,13 @@ package com.hbm.inventory.gui;
 import java.awt.Color;
 import java.io.IOException;
 
+
+
+
+
+
+
+
 import org.lwjgl.opengl.GL11;
 
 import com.hbm.inventory.container.ContainerFEL;
@@ -11,11 +18,18 @@ import com.hbm.lib.RefStrings;
 import com.hbm.packet.AuxButtonPacket;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.tileentity.machine.TileEntityFEL;
-import com.hbm.render.amlfrom1710.Tessellator;
+
+
+
+
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.SoundEvents;
@@ -68,7 +82,8 @@ public class GUIFEL extends GuiInfoContainer {
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		super.drawDefaultBackground();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		
@@ -81,29 +96,27 @@ public class GUIFEL extends GuiInfoContainer {
 		int color = !(fel.mode == EnumWavelengths.VISIBLE) ? fel.mode.guiColor : Color.HSBtoRGB(fel.getWorld().getTotalWorldTime() / 50.0F, 0.5F, 1F) & 16777215;
 		
 		if(fel.power > fel.powerReq * Math.pow(2, fel.mode.ordinal()) && fel.isOn && !(fel.mode == EnumWavelengths.NULL) && fel.distance > 0) {
+	
+			GlStateManager.disableTexture2D();
+			GlStateManager.disableLighting();
+			GlStateManager.glLineWidth(10F);
+			GlStateManager.color(((color >> 16) & 0xFF) / 255.0F, ((color >> 8) & 0xFF) / 255.0F, (color & 0xFF) / 255.0F, 1.0F);
 			
-			GL11.glPushMatrix();
-			GL11.glDisable(GL11.GL_TEXTURE_2D);
-			GL11.glDisable(GL11.GL_LIGHTING);
-			GL11.glLineWidth(5F);
+			BufferBuilder buf = Tessellator.getInstance().getBuffer();
+			buf.begin(GL11.GL_LINES, DefaultVertexFormats.POSITION);
 			
-			Tessellator tessellator = Tessellator.instance;
-			tessellator.startDrawing(1);
-			tessellator.setColorOpaque_I(color);
+			buf.pos(guiLeft + 135, guiTop + 31.5F, this.zLevel).endVertex();
+
+			buf.pos(guiLeft + 113, guiTop + 31.5F, this.zLevel).endVertex();
 			
-			tessellator.addVertex(guiLeft + 113, guiTop + 31.5F, this.zLevel);
-			tessellator.addVertex(guiLeft + 135, guiTop + 31.5F, this.zLevel);
-			tessellator.draw();
 			
-			tessellator.startDrawing(1);
-			tessellator.setColorOpaque_I(color);
+			buf.pos(0, guiTop + 31.5F, this.zLevel).endVertex();
+
+			buf.pos(guiLeft + 4, guiTop + 31.5F, this.zLevel).endVertex();
 			
-			tessellator.addVertex(0, guiTop + 31.5F, this.zLevel);
-			tessellator.addVertex(guiLeft + 4, guiTop + 31.5F, this.zLevel);
-			tessellator.draw();
+			Tessellator.getInstance().draw();
+	        GlStateManager.enableTexture2D();
 			
-			GL11.glEnable(GL11.GL_TEXTURE_2D);
-			GL11.glPopMatrix();
 		}
 	}	
 }

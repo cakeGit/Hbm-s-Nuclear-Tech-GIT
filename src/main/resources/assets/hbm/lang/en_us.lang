@@ -1150,6 +1150,10 @@ tile.solar_mirror.name=Heliostat Mirror
 container.machineSILEX=SILEX
 container.machineFEL=FEL
 
+tile.heater_firebox.name=Firebox
+tile.furnace_steel.name=Steel Furnace
+container.heater_firebox=Firebox
+
 tile.barrel_plastic.name=Safe Barrel™
 tile.barrel_corroded.name=Corroded Barrel
 tile.barrel_iron.name=Iron Barrel
@@ -1967,15 +1971,15 @@ item.fusion_shield_desh.name=Desh Fusion Reactor Blanket
 item.fusion_shield_tungsten.name=Tungsten Fusion Reactor Blanket
 item.fusion_shield_vaporwave.name=Vaporwave Fusion Reactor Blanket
 
-item.dynosphere_base.name=Blank Dynosphere
-item.dynosphere_desh.name=Desh Dynosphere
-item.dynosphere_desh_charged.name=Desh Dynosphere (Charged)
-item.dynosphere_schrabidium.name=Schrabidium Dynosphere
-item.dynosphere_schrabidium_charged.name=Schrabidium Dynosphere (Charged)
-item.dynosphere_euphemium.name=Euphemium Dynosphere
-item.dynosphere_euphemium_charged.name=Euphemium Dynosphere (Charged)
-item.dynosphere_dineutronium.name=Dineutronium Dynosphere
-item.dynosphere_dineutronium_charged.name=Dineutronium Dynosphere (Charged)
+item.dynosphere_base.name=Blank Dynosphere (SOON-TO-BE DEPRECATED)
+item.dynosphere_desh.name=Desh Dynosphere(SOON-TO-BE DEPRECATED)
+item.dynosphere_desh_charged.name=Desh Dynosphere (Charged)(SOON-TO-BE DEPRECATED)
+item.dynosphere_schrabidium.name=Schrabidium Dynosphere(SOON-TO-BE DEPRECATED)
+item.dynosphere_schrabidium_charged.name=Schrabidium Dynosphere (Charged)(SOON-TO-BE DEPRECATED)
+item.dynosphere_euphemium.name=Euphemium Dynosphere(SOON-TO-BE DEPRECATED)
+item.dynosphere_euphemium_charged.name=Euphemium Dynosphere (Charged)(SOON-TO-BE DEPRECATED)
+item.dynosphere_dineutronium.name=Dineutronium Dynosphere(SOON-TO-BE DEPRECATED)
+item.dynosphere_dineutronium_charged.name=Dineutronium Dynosphere (Charged)(SOON-TO-BE DEPRECATED)
 
 item.plate_iron.name=Iron Plate
 item.plate_lead.name=Lead Plate
@@ -4043,6 +4047,7 @@ container.storageDrum=Nuclear Waste Disposal Drum
 container.orbus=Heavy Antimatter Storage
 container.bat9000=Big-Ass Tank 9000
 container.anvil=Tier %s Anvil
-
+container.heaterFirebox=Firebox
+container.furnaceSteel=Steel Furnace
 item.charge_railgun.name=Deuterium Plasma Capsule
 item.ducc.name=ducc

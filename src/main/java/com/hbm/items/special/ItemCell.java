@@ -12,6 +12,7 @@ import com.hbm.forgefluid.HbmFluidHandlerCell;
 import com.hbm.forgefluid.HbmFluidHandlerItemStack;
 import com.hbm.forgefluid.ModForgeFluids;
 import com.hbm.forgefluid.SpecialContainerFillLists.EnumCell;
+import com.hbm.interfaces.Spaghetti;
 import com.hbm.items.ModItems;
 import com.hbm.util.ContaminationUtil;
 import com.hbm.util.ContaminationUtil.ContaminationType;
@@ -210,7 +211,7 @@ public class ItemCell extends Item {
 		}
 		return false;
 	}
-
+    
 	public static ItemStack getFullCell(Fluid fluid, int amount) {
 		if(EnumCell.contains(fluid)) {
 			ItemStack stack = new ItemStack(ModItems.cell, amount, 0);

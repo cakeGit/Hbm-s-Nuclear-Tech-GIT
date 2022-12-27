@@ -119,7 +119,7 @@ public class HbmLivingProps {
 	}
 
 	public static void incrementDigamma(EntityLivingBase entity, float digamma){
-		IEntityHbmProps data = getData(entity);
+	    getData(entity);
 		float dRad = getDigamma(entity) + digamma;
 
 		if(dRad > 10)
@@ -127,7 +127,7 @@ public class HbmLivingProps {
 		if(dRad < 0)
 			dRad = 0;
 
-		data.setDigamma(dRad);
+		setDigamma(entity,dRad);
 	}
 
 	/// ASBESTOS ///
