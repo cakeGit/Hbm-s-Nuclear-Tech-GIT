@@ -39,11 +39,12 @@ public class ContainerFurnaceSteel extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack stack = null;
+		ItemStack stack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
-
-		if(slot != null && slot.getHasStack()) {
-			ItemStack originalStack = slot.getStack();
+		ItemStack originalStack = slot.getStack();
+		
+		if(slot != null && slot.getHasStack() && originalStack != ItemStack.EMPTY) {
+			
 			stack = originalStack.copy();
 
 			if(index <= 5) {
