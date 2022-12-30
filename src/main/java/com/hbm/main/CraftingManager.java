@@ -2278,7 +2278,7 @@ public class CraftingManager {
 		addShapedRecipe(new ItemStack(ModBlocks.hadron_coil_magtung, 1), new Object[] { "WWW", "WCW", "WWW", 'W', ModItems.wire_magnetized_tungsten, 'C', ModBlocks.fwatz_conductor });
 		addShapedRecipe(new ItemStack(ModBlocks.hadron_coil_gold, 1), new Object[] { "GGG", "GCG", "GGG", 'G', ModItems.coil_gold, 'C', ModBlocks.hadron_coil_alloy });
 		addShapedRecipe(new ItemStack(ModBlocks.hadron_coil_neodymium, 1), new Object[] { " G ", "GCG", " G ", 'G', ModItems.powder_neodymium, 'C', ModBlocks.hadron_coil_gold });
-		addShapedRecipe(new ItemStack(ModBlocks.hadron_coil_schrabidate, 1), new Object[] { "S", "SCS", "S", 'S', ModItems.powder_schrabidate, 'C', ModBlocks.hadron_coil_schrabidium });
+		addShapedRecipe(new ItemStack(ModBlocks.hadron_coil_schrabidate, 1), new Object[] { " S ", "SCS", " S ", 'S', ModItems.powder_schrabidate, 'C', ModBlocks.hadron_coil_schrabidium });
 		addShapedRecipe(new ItemStack(ModBlocks.hadron_coil_schrabidium, 1), new Object[] { "SCS", "CSC", "SCS", 'S', ModItems.wire_schrabidium, 'C', ModBlocks.hadron_coil_alloy });
 		addShapedRecipe(new ItemStack(ModBlocks.hadron_coil_starmetal, 1), new Object[] { "ICI", "ISI", "ICI", 'S', ModBlocks.hadron_coil_schrabidate, 'C', ModBlocks.hadron_coil_neodymium,'I',STAR.ingot() });
 		addShapedOreRecipe(new ItemStack(ModBlocks.hadron_diode, 1), new Object[] { "CIC", "ISI", "CIC", 'C', ModBlocks.hadron_coil_alloy, 'I', "ingotSteel", 'S', ModItems.circuit_gold });

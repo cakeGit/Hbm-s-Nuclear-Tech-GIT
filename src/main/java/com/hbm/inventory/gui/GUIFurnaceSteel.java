@@ -34,6 +34,7 @@ public class GUIFurnaceSteel extends GuiInfoContainer {
 		}
 		
 		this.drawCustomInfoStat(x, y, guiLeft + 151, guiTop + 18, 9, 50, x, y, new String[] { String.format("%,d", furnace.heat) + " / " + String.format("%,d", furnace.maxHeat) + "TU" });
+		this.renderHoveredToolTip(x, y);
 	}
 	
 	@Override

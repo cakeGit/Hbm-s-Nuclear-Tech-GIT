@@ -4,10 +4,13 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.BlockDummyable;
 import com.hbm.main.ResourceManager;
-
 import com.hbm.tileentity.machine.TileEntityFurnaceSteel;
 
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 
 public class RenderFurnaceSteel extends TileEntitySpecialRenderer<TileEntityFurnaceSteel> {
 
@@ -29,7 +32,32 @@ public class RenderFurnaceSteel extends TileEntitySpecialRenderer<TileEntityFurn
 		
 		bindTexture(ResourceManager.furnace_steel_tex);
 		ResourceManager.furnace_steel.renderAll();
-		//for now no anim, while I figure out the 1.12 tesselator
+		
+		TileEntityFurnaceSteel furnace = (TileEntityFurnaceSteel) tileEntity;
+		if(furnace.wasOn) {
+			GlStateManager.disableTexture2D();
+			GlStateManager.enableBlend();	
+			GlStateManager.disableLighting();
+			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+			float col = (float )Math.sin(System.currentTimeMillis() * 0.001);
+			GlStateManager.color(0.875F + col * 0.125F, 0.625F + col * 0.375F, 0F, 0.5F);
+			BufferBuilder buf = Tessellator.getInstance().getBuffer();
+			buf.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
+	
+			
+			for(int i = 0; i < 4; i++) {
+				buf.pos(1 + i * 0.0625, 1, -1).endVertex();
+				buf.pos(1 + i * 0.0625, 1, 1).endVertex();
+				buf.pos(1 + i * 0.0625, 0.5, 1).endVertex();
+				buf.pos(1 + i * 0.0625, 0.5, -1).endVertex();
+			}
+			 Tessellator.getInstance().draw();
+			 GlStateManager.disableBlend();
+			 GlStateManager.enableTexture2D();
+			 GlStateManager.enableLighting();
+		}
+		
+
 		GL11.glPopMatrix();
 	}
 
