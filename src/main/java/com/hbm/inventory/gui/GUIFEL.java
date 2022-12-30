@@ -53,6 +53,7 @@ public class GUIFEL extends GuiInfoContainer {
 		super.drawScreen(mouseX, mouseY, f);
 		
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 182, guiTop + 27, 16, 113, fel.power, fel.maxPower);
+		this.renderHoveredToolTip(mouseX, mouseY);
 	}
 
 	protected void mouseClicked(int mouseX, int mouseY, int i) throws IOException {
