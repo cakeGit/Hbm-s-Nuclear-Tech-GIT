@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hbm.packet.AuxGaugePacket;
+import com.hbm.packet.AuxLongPacket;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.blocks.machine.MachineBattery;
 import com.hbm.interfaces.IConsumer;
@@ -45,7 +46,7 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	private String customName;
 	
 	public TileEntityMachineBattery() {
-		super(2);
+		super(4);
 	}
 	
 	public TileEntityMachineBattery(long power) {
@@ -273,7 +274,7 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 	private boolean detectConducts;
 	private long detectPower;
 	
-	private void detectAndSendChanges() {
+	void detectAndSendChanges() {
 		boolean mark = false;
 		
 		if(detectConducts != conducts){
@@ -284,7 +285,7 @@ public class TileEntityMachineBattery extends TileEntityMachineBase implements I
 			mark = true;
 			detectPower = power;
 		}
-		PacketDispatcher.wrapper.sendToAllAround(new AuxGaugePacket(pos.getX(), pos.getY(), pos.getZ(), (int)powerDelta, 0), new TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 10));
+		PacketDispatcher.wrapper.sendToAllAround(new AuxLongPacket(pos.getX(), pos.getY(), pos.getZ(), powerDelta, 0), new TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 10));
 		
 		if(mark)
 			markDirty();
