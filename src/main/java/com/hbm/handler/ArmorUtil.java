@@ -28,8 +28,8 @@ public class ArmorUtil {
 		//ArmorRegistry.registerHazard(ModItems.gas_mask_filter_rag, HazardClass.PARTICLE_COARSE);
 		//ArmorRegistry.registerHazard(ModItems.gas_mask_filter_piss, HazardClass.PARTICLE_COARSE, HazardClass.GAS_CHLORINE);
 
-		ArmorRegistry.registerHazard(ModItems.gas_mask, HazardClass.SAND, HazardClass.LIGHT);
-		ArmorRegistry.registerHazard(ModItems.gas_mask_m65, HazardClass.SAND);
+		ArmorRegistry.registerHazard(ModItems.gas_mask, HazardClass.SAND, HazardClass.LIGHT, HazardClass.PARTICLE_COARSE, HazardClass.PARTICLE_FINE);
+		ArmorRegistry.registerHazard(ModItems.gas_mask_m65, HazardClass.SAND, HazardClass.PARTICLE_COARSE, HazardClass.PARTICLE_FINE);
 		//ArmorRegistry.registerHazard(ModItems.mask_rag, HazardClass.PARTICLE_COARSE);
 		//ArmorRegistry.registerHazard(ModItems.mask_piss, HazardClass.PARTICLE_COARSE, HazardClass.GAS_CHLORINE);
 		
@@ -119,6 +119,8 @@ public class ArmorUtil {
 			"bronze",
 			"electrum",
 			"t45",
+			"hev",
+			"ajr",
 			"rpa",
 			"bj",
 			"starmetal",
