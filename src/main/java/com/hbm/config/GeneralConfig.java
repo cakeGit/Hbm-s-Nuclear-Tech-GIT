@@ -20,6 +20,7 @@ public class GeneralConfig {
 	public static boolean enableWelcomeMessage = true;
 	public static int rfConversionRate = 4;
 	public static boolean useAlternateTextures = false;
+	public static boolean enableBlackLung = true;
 	public static boolean enableMycelium = false;
 	public static boolean enablePlutoniumOre = false;
 	public static boolean enableDungeons = true;
@@ -175,6 +176,8 @@ public class GeneralConfig {
 		rfConversionRate = CommonConfig.createConfigInt(config, CATEGORY_GENERAL, "1.35_rfConversionRate", "Controls how much RF you get per HE and vice versa", 4);
 
 		useAlternateTextures = CommonConfig.createConfigBool(config, CATEGORY_GENERAL, "1.36_useAlternateTextures", "Use alternative textures (Coming Soon)", false);
+
+		enableBlackLung = CommonConfig.createConfigBool(config, CATEGORY_GENERAL, "1.37_enableBlackLung", "Enables the chance to catch black lung disease when mining coal", true);
 
 		final String CATEGORY_528 = "528";
 
