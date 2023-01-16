@@ -3,7 +3,6 @@ package com.hbm.tileentity.machine;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hbm.packet.AuxGaugePacket;
 import com.hbm.packet.AuxLongPacket;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.blocks.machine.MachineBattery;
