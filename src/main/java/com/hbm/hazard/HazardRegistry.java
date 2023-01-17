@@ -3,6 +3,7 @@ package com.hbm.hazard;
 import static com.hbm.blocks.ModBlocks.*;
 import static com.hbm.items.ModItems.*;
 
+import com.hbm.config.GeneralConfig;
 import com.hbm.hazard.transformer.HazardTransformerRadiationNBT;
 import com.hbm.hazard.type.HazardTypeAsbestos;
 import com.hbm.hazard.type.HazardTypeBase;
@@ -135,10 +136,12 @@ public class HazardRegistry {
 		HazardSystem.register(Blocks.TNT, makeData(EXPLOSIVE, 4F));
 		HazardSystem.register(Items.PUMPKIN_PIE, makeData(EXPLOSIVE, 4F));
 
-		HazardSystem.register("dustCoal", makeData(COAL, powder));
-		HazardSystem.register("dustSmallCoal", makeData(COAL, powder_tiny));
-		HazardSystem.register("dustLignite", makeData(COAL, powder));
-		HazardSystem.register("dustSmallLignite", makeData(COAL, powder_tiny));
+		if(GeneralConfig.enableBlackLung) {
+			HazardSystem.register("dustCoal", makeData(COAL, powder));
+			HazardSystem.register("dustSmallCoal", makeData(COAL, powder_tiny));
+			HazardSystem.register("dustLignite", makeData(COAL, powder));
+			HazardSystem.register("dustSmallLignite", makeData(COAL, powder_tiny));
+		}
 		
 		HazardSystem.register(ingot_semtex, makeData(EXPLOSIVE, 10F));
 		HazardSystem.register(block_semtex, makeData(EXPLOSIVE, 40F));

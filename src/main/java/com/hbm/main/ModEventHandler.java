@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import com.hbm.config.MobConfig;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.logging.log4j.Level;
 
@@ -280,44 +281,46 @@ public class ModEventHandler {
 	
 	@SubscribeEvent
 	public void mobSpawn(LivingSpawnEvent event) {
-		EntityLivingBase entity = event.getEntityLiving();
-		World world = event.getWorld();
+		if(MobConfig.enableMobGear) {
+			EntityLivingBase entity = event.getEntityLiving();
+			World world = event.getWorld();
 
-		if(entity instanceof EntityZombie) {
-			if(rand.nextInt(64) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask_m65, 1, world.rand.nextInt(100)));
-			if(rand.nextInt(128) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask, 1, world.rand.nextInt(100)));
-			if(rand.nextInt(256) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.mask_of_infamy, 1, world.rand.nextInt(100)));
-			if(rand.nextInt(1024) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ModItems.starmetal_plate, 1, world.rand.nextInt(ModItems.starmetal_plate.getMaxDamage(ItemStack.EMPTY))));
+			if (entity instanceof EntityZombie) {
+				if (rand.nextInt(64) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask_m65, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(128) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(256) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.mask_of_infamy, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(1024) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(ModItems.starmetal_plate, 1, world.rand.nextInt(ModItems.starmetal_plate.getMaxDamage(ItemStack.EMPTY))));
 
-			if(rand.nextInt(128) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.pipe_lead, 1, world.rand.nextInt(100)));
-			if(rand.nextInt(128) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.reer_graar, 1, world.rand.nextInt(100)));
-			if(rand.nextInt(128) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.pipe_rusty, 1, world.rand.nextInt(100)));
-			if(rand.nextInt(128) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.crowbar, 1, world.rand.nextInt(100)));
-			if(rand.nextInt(128) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.geiger_counter, 1));
-			if(rand.nextInt(128) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.steel_pickaxe, 1, world.rand.nextInt(300)));
-			if(rand.nextInt(512) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.stopsign));
-			if(rand.nextInt(512) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.sopsign));
-			if(rand.nextInt(512) == 0)
-				entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.chernobylsign));
-		}
-		if(entity instanceof EntitySkeleton) {
-			if(rand.nextInt(16) == 0) {
-				entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask_m65, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(128) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.pipe_lead, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(128) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.reer_graar, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(128) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.pipe_rusty, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(128) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.crowbar, 1, world.rand.nextInt(100)));
+				if (rand.nextInt(128) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.geiger_counter, 1));
+				if (rand.nextInt(128) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.steel_pickaxe, 1, world.rand.nextInt(300)));
+				if (rand.nextInt(512) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.stopsign));
+				if (rand.nextInt(512) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.sopsign));
+				if (rand.nextInt(512) == 0)
+					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.chernobylsign));
+			}
+			if (entity instanceof EntitySkeleton) {
+				if (rand.nextInt(16) == 0) {
+					entity.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(ModItems.gas_mask_m65, 1, world.rand.nextInt(100)));
 
-				if(rand.nextInt(32) == 0) {
-					entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.syringe_poison));
+					if (rand.nextInt(32) == 0) {
+						entity.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.syringe_poison));
+					}
 				}
 			}
 		}
@@ -1214,7 +1217,7 @@ public class ModEventHandler {
 			event.setExpToDrop(500);
 		}
 		
-		if(block == Blocks.COAL_ORE || block == Blocks.COAL_BLOCK || block == ModBlocks.ore_lignite) {
+		if(GeneralConfig.enableBlackLung && (block == Blocks.COAL_ORE || block == Blocks.COAL_BLOCK || block == ModBlocks.ore_lignite)) {
 			
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
@@ -1251,7 +1254,7 @@ public class ModEventHandler {
 				e.player.sendMessage(new TextComponentString("Optifine detected, may cause compatibility issues. Check log for details."));
 			}
 			
-			if(e.player instanceof EntityPlayerMP && !e.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getBoolean("hasDucked"))
+			if(MobConfig.enableDuck && e.player instanceof EntityPlayerMP && !e.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getBoolean("hasDucked"))
         		PacketDispatcher.sendTo(new PlayerInformPacket("Press O to Duck!"), (EntityPlayerMP)e.player);
 		}
 	}

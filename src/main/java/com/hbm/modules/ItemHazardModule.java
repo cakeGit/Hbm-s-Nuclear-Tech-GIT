@@ -113,7 +113,7 @@ public class ItemHazardModule {
 				ArmorUtil.damageGasMaskFilter(entity, (int) (this.asbestos));
 		}
 
-		if(this.coal > 0) {
+		if(GeneralConfig.enableBlackLung && this.coal > 0) {
 			if(!ArmorRegistry.hasProtection(entity, EntityEquipmentSlot.HEAD, HazardClass.PARTICLE_COARSE))
 				HbmLivingProps.incrementBlackLung(entity, (int) (this.coal * Math.min(mod, 10)));
 			else
@@ -186,7 +186,7 @@ public class ItemHazardModule {
 			list.add(TextFormatting.WHITE + "[" + I18nUtil.resolveKey("trait.asbestos") + "]");
 		}
 		
-		if(this.coal > 0) {
+		if(GeneralConfig.enableBlackLung && this.coal > 0) {
 			list.add(TextFormatting.DARK_GRAY + "[" + I18nUtil.resolveKey("trait.coal") + "]");
 		}
 		
