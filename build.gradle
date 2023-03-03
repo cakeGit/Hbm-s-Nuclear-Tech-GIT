@@ -70,6 +70,9 @@ dependencies {
 
     //Compile against the OpenComputers api
     compile "li.cil.oc:OpenComputers:MC1.12.2-1.7.+:api"
+
+    // at runtime, use the full OC jar MC1.12.2-1.7.5.221
+    runtime "li.cil.oc:OpenComputers:MC1.12.2-1.7.5.221"
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings
     //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
