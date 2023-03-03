@@ -200,7 +200,7 @@ public class RenderObjTester extends TileEntitySpecialRenderer<TileEntityObjTest
         GL11.glTranslated(x+0.5, y+20, z+0.5);
         bindTexture(ResourceManager.turbofan_blades_tex);
         
-        ResourceManager.BFG10K.renderAll();
+        //ResourceManager.BFG10K.renderAll();
         
         GL11.glPopMatrix();
         

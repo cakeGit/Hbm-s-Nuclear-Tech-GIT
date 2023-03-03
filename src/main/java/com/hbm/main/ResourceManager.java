@@ -152,7 +152,7 @@ public class ResourceManager {
 	public static final IModelCustom tom_flame = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/weapons/tom_flame.hmf"));
 	public static final IModelCustom nikonium = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/nikonium.obj"));
 
-	public static final IModelCustom BFG10K = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/bfg337.obj"));
+	//public static final IModelCustom BFG10K = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/bfg337.obj"));
 	public static final IModelCustom hemisphere_uv = new HFRWavefrontObject(new ResourceLocation(RefStrings.MODID, "models/sphere_half.obj"));
 
 	//Dark Matter Core
