@@ -57,8 +57,8 @@ public class HazmatRegistry {
 	public static float getResistance(EntityLivingBase player) {
 		float res = 0.0F;
 
-		if (player.getUniqueID().toString().equals(Library.HbMinecraft) || player.getUniqueID().toString().equals(Library.Golem) || player.getUniqueID().toString().equals(Library.Drillgon) || player.getUniqueID().toString().equals(Library.Malpon)) {
-			res += 1.0F;
+		if (player.getUniqueID().toString().equals(Library.Golem)) {
+			res += 4.0F;
 		}
 
 		for(ItemStack stack : player.getArmorInventoryList()) {
