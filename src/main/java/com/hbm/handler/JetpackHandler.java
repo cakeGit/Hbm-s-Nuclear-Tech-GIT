@@ -138,6 +138,8 @@ public class JetpackHandler {
 			return 1;
 		} else if(f == ModForgeFluids.balefire){
 			return 1;
+		} else if(f == ModForgeFluids.abyssal_fuel){
+			return 1;
 		}
 		return 0;
 	}
