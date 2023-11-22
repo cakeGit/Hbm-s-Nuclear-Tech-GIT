@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.8.3a-G"
+version = "1.8.4a-G"
 group = "com.hbm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "hbm"
 
@@ -51,7 +51,17 @@ repositories {
         url = "https://modmaven.k-4u.nl"
     }
 
+    maven {
+        name = "CoFH Maven"
+        url = "http://maven.covers1624.net"
+    }
+
     maven { url = "https://maven.minecraftforge.net/" }
+
+    maven { // CraftTweaker
+        name = "jared maven"
+        url = "http://maven.blamejared.com/"
+    }
 
 }
 
@@ -77,6 +87,12 @@ dependencies {
     // except that these dependencies get remapped to your current MCP mappings
     //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
     //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+    //CraftTweaker
+    compile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${version_crafttweaker}"
+
+    //RF
+    deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal"
 	
 	// compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
